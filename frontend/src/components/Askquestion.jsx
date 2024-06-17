@@ -1,10 +1,8 @@
 import React from "react";
-import Add from "../icons/Add";
 import Share from "../icons/Share";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
-import { duration } from "moment";
 
 const Askquestion = () => {
   const user = JSON.parse(localStorage.getItem("user"));
@@ -30,7 +28,7 @@ const Askquestion = () => {
       }
   
       const res = await axios.post(
-        `${process.env.REACT_APP_BACKEND_URL}/ask-question`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/questions/ask-question`,
         question
       );
       if (res.status === 201) {

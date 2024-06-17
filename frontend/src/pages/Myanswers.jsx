@@ -4,7 +4,6 @@ import newRequests from "../utils/newRequest";
 import Arrowup from "../icons/Arrowup";
 import Arrowdown from "../icons/Arrowdown";
 import UserInfo from "../components/UserInfo";
-import Write from "../icons/Write";
 import SyncLoader from "react-spinners/SyncLoader";
 import NothingHere from "../components/NothingHere";
 
@@ -14,7 +13,7 @@ const Myanswers = () => {
 
   const { isLoading, data } = useQuery("getMyQuestions", () =>
     newRequests
-      .get(`${process.env.REACT_APP_BACKEND_URL}/my-questions/${id}`)
+      .get(`${process.env.REACT_APP_BACKEND_URL}/api/questions/my-questions/${id}`)
       .then((res) => res.data)
   );
 

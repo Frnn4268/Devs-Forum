@@ -1,27 +1,8 @@
 import React, { useEffect } from "react";
-import { io } from "socket.io-client";
 import Write from "../icons/Write";
-import Send from "../icons/Send";
-import { useNavigate } from "react-router-dom";
-import _, { set } from "lodash";
 import moment from "moment";
 import { socket } from "../App";
 import { useSelector } from "react-redux";
-
-const discussionTopics = [
-  "technology",
-  "Climate",
-  "Space",
-  "Artificial intelligence",
-  "Social media",
-  "health",
-  "education",
-  "globalization",
-  "culture",
-  "Political",
-  "Sports",
-  "Public opinion",
-];
 
 const Chat = () => {
   const [message, setMessage] = React.useState("");

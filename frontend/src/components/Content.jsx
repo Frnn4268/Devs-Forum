@@ -1,14 +1,12 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Arrowup from "../icons/Arrowup";
 import Arrowdown from "../icons/Arrowdown";
-import Comment from "../icons/Comment";
 import UserInfo from "./UserInfo";
 import Write from "../icons/Write";
 import Send from "../icons/Send";
 import { useQuery } from "react-query";
 import newRequests from "../utils/newRequest";
 import { useParams } from "react-router-dom";
-import SyncLoader from "react-spinners/SyncLoader";
 import { Toaster } from "react-hot-toast";
 import Loading from "./Loading";
 import NothingHere from "./NothingHere";
@@ -21,11 +19,11 @@ const Content = () => {
   const { isLoading, data } = useQuery("getAllQuestions", () => {
     if (topic) {
       return newRequests
-        .get(`${process.env.REACT_APP_BACKEND_URL}/find/${topic}`)
+        .get(`${process.env.REACT_APP_BACKEND_URL}/api/questions/find/${topic}`)
         .then((res) => res.data);
     } else {
       return newRequests
-        .get(`${process.env.REACT_APP_BACKEND_URL}/questions`)
+        .get(`${process.env.REACT_APP_BACKEND_URL}/api/questions/questions`)
         .then((res) => res.data);
     }
   });

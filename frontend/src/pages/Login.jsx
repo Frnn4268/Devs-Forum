@@ -16,7 +16,7 @@ const Login = () => {
     };
 
     try {
-      const res = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/login`, user);
+      const res = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/users/login`, user);
       if (res.status === 200) {
         localStorage.setItem("user", JSON.stringify(res.data));
         navigate("/");

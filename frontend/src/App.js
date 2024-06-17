@@ -53,7 +53,7 @@ const Layout = () => {
     console.log("backend url", process.env.REACT_APP_BACKEND_URL);
     const getUsers = async () => {
       const res = await axios.get(
-        `${process.env.REACT_APP_BACKEND_URL}/allusers`
+        `${process.env.REACT_APP_BACKEND_URL}/api/users/allusers`
       );
       setUsers(res.data);
     };
