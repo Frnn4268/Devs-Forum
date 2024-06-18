@@ -8,7 +8,7 @@ const Arrowdown = ({ id }) => {
     e.preventDefault();
     try {
       const res = await axios.post(
-        `${process.env.REACT_APP_BACKEND_URL}/downvote/${id}`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/questions/downvote/${id}`,
         {
           userId,
         }

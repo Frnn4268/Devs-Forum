@@ -1,8 +1,10 @@
 import express from "express";
-import connectDB from "./config/connect.js";
 import cors from "cors";
 import http from "http";
+import connectDB from "./config/connect.js";
+
 import { handleSocketConnection } from "./controllers/socketController.js";
+
 import userRoutes from "./routes/userRoutes.js";
 import questionRoutes from "./routes/questionRoutes.js";
 

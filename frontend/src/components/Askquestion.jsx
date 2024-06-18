@@ -71,13 +71,13 @@ const Askquestion = () => {
         text-purple-600 
         "
         >
-          Ask a Question
+          Make a Post
         </h1>
 
         <form onSubmit={handleSubmit} className="form w-full ">
           <div className="title">
             <label className="text-gray-800 text-start dark:text-white">
-              Question Title
+              Post Title
             </label>
             <input
               name="title"
@@ -88,7 +88,7 @@ const Askquestion = () => {
           </div>
           <div className="desc mt-3">
             <label className="text-gray-800 text-start dark:text-white">
-              Question Description
+              Post Description
             </label>
             <textarea
               name="description"
@@ -112,7 +112,7 @@ const Askquestion = () => {
             className="mt-8 w-[230px] mx-auto flex items-center gap-2 bg-purple-700 rounded-md shadow-sm px-8 py-2 cursor-pointer"
           >
             <Share />
-            <span className="text-white">Ask on Community</span>
+            <span className="text-white">Post on Community</span>
           </button>
         </form>
       </div>

@@ -12,7 +12,6 @@ import axios from "axios";
 import React from "react";
 import Chat from "./pages/Chat";
 import Myanswers from "./pages/Myanswers";
-import Explore from "./pages/Explore";
 import Notfound from "./components/Notfound";
 import { useDispatch, useSelector } from "react-redux";
 import { io } from "socket.io-client";
@@ -52,9 +51,7 @@ const Layout = () => {
     });
     console.log("backend url", process.env.REACT_APP_BACKEND_URL);
     const getUsers = async () => {
-      const res = await axios.get(
-        `${process.env.REACT_APP_BACKEND_URL}/api/users/allusers`
-      );
+      const res = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/users/allusers`);
       setUsers(res.data);
     };
     getUsers();
@@ -130,14 +127,6 @@ const router = createBrowserRouter([
       {
         path: "/chat",
         element: <Chat />,
-      },
-      {
-        path: "/explore",
-        element: <Explore />,
-      },
-      {
-        path: "/explore/:topic",
-        element: <Content />,
       },
       {
         path: "/myqna",

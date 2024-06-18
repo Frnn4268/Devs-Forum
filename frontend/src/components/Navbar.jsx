@@ -32,7 +32,7 @@ const Navbar = () => {
         >
           {!open ? <Hamburger /> : <Cancel />}
         </div>
-        H-Forum
+        Dev's - Forum
       </div>
 
       <div className="flex items-center gap-3">
