@@ -7,6 +7,7 @@ import {
 
 const router = express.Router();
 
+// Routes for userController.js
 router.post("/signup", createUser);
 router.post("/login", loginUser);
 router.get("/allusers", getAllUsers);

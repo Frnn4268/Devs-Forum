@@ -11,6 +11,7 @@ import {
 
 const router = express.Router();
 
+// Routes for questionController.js
 router.post("/ask-question", askQuestion);
 router.post("/answer/:id", answerQuestion);
 router.get("/questions", getQuestions);

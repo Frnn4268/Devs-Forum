@@ -14,6 +14,7 @@ const Arrowdown = ({ id }) => {
         }
       );
       console.log(res.status);
+      
       if (res.status === 200) {
         alert("downvoted successfully");
       } else {

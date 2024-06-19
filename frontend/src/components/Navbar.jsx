@@ -36,9 +36,6 @@ const Navbar = () => {
       </div>
 
       <div className="flex items-center gap-3">
-        {dark ? <Light /> : <Dark />}
-
-        {/* // Logout */}
         <Logout />
         <div className="hidden md:flex items-center gap-5">
           <div

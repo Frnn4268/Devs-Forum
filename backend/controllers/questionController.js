@@ -1,6 +1,7 @@
 import Question from "../model/question.js";
 import Reply from "../model/reply.js";
 
+// Function to handle asking a question
 const askQuestion = async (req, res) => {
   const { question, description, userId, tags } = req.body;
   try {
@@ -10,27 +11,29 @@ const askQuestion = async (req, res) => {
       author: userId,
       tags,
     });
-    return res.status(201).json(newQuestion);
+    return res.status(201).json(newQuestion); // Return the created question
   } catch (error) {
-    res.status(500).json({ message: "Server Error" });
+    res.status(500).json({ message: "Server Error" }); // Handle server error
   }
 };
 
+// Function to handle answering a question
 const answerQuestion = async (req, res) => {
   const { answer, userId } = req.body;
   const { id: questionId } = req.params;
   try {
     const reply = await Reply.create({ reply: answer, author: userId });
     const findQuestion = await Question.findById(questionId);
-    const addReply = await findQuestion.updateOne({
+    await findQuestion.updateOne({
       $push: { replies: reply._id },
     });
-    return res.status(201).json(reply);
+    return res.status(201).json(reply); // Return the created reply
   } catch (error) {
-    res.status(500).json({ message: "Server Error" });
+    res.status(500).json({ message: "Server Error" }); // Handle server error
   }
 };
 
+// Function to get all questions
 const getQuestions = async (req, res) => {
   try {
     const questions = await Question.find({})
@@ -44,19 +47,20 @@ const getQuestions = async (req, res) => {
       })
       .populate("author")
       .sort({ createdAt: -1 });
-    return res.status(200).json(questions);
+    return res.status(200).json(questions); // Return the list of questions
   } catch (error) {
-    res.status(500).json({ message: "Server Error" });
+    res.status(500).json({ message: "Server Error" }); // Handle server error
   }
 };
 
+// Function to handle upvoting a question
 const upvoteQuestion = async (req, res) => {
   const { id: questionId } = req.params;
   const { userId } = req.body;
   try {
     const findQuestion = await Question.findById(questionId);
     if (findQuestion.upvote.includes(userId)) {
-      return res.status(400).json({ message: "You have already upvoted" });
+      return res.status(400).json({ message: "You have already upvoted" }); // Prevent duplicate upvotes
     }
 
     if (findQuestion.downvote.includes(userId)) {
@@ -68,19 +72,20 @@ const upvoteQuestion = async (req, res) => {
     await findQuestion.updateOne({
       $push: { upvote: userId },
     });
-    return res.status(200).json({ message: "Upvoted successfully" });
+    return res.status(200).json({ message: "Upvoted successfully" }); // Confirm upvote
   } catch (error) {
-    res.status(500).json({ message: "Server Error" });
+    res.status(500).json({ message: "Server Error" }); // Handle server error
   }
 };
 
+// Function to handle downvoting a question
 const downvoteQuestion = async (req, res) => {
   const { id: questionId } = req.params;
   const { userId } = req.body;
   try {
     const findQuestion = await Question.findById(questionId);
     if (findQuestion.downvote.includes(userId)) {
-      return res.status(400).json({ message: "You have already downvoted" });
+      return res.status(400).json({ message: "You have already downvoted" }); // Prevent duplicate downvotes
     }
 
     if (findQuestion.upvote.includes(userId)) {
@@ -92,12 +97,13 @@ const downvoteQuestion = async (req, res) => {
     await findQuestion.updateOne({
       $push: { downvote: userId },
     });
-    return res.status(200).json({ message: "Downvoted successfully" });
+    return res.status(200).json({ message: "Downvoted successfully" }); // Confirm downvote
   } catch (error) {
-    res.status(500).json({ message: "Server Error" });
+    res.status(500).json({ message: "Server Error" }); // Handle server error
   }
 };
 
+// Function to get questions by a specific user
 const getUserQuestions = async (req, res) => {
   const { id: userId } = req.params;
   try {
@@ -112,12 +118,13 @@ const getUserQuestions = async (req, res) => {
       })
       .populate("author")
       .sort({ createdAt: -1 });
-    return res.status(200).json(questions);
+    return res.status(200).json(questions); // Return the user's questions
   } catch (error) {
-    res.status(500).json({ message: "Server Error" });
+    res.status(500).json({ message: "Server Error" }); // Handle server error
   }
 };
 
+// Function to find questions by a specific topic
 const findQuestionsByTopic = async (req, res) => {
   const { topic } = req.params;
   try {
@@ -136,9 +143,9 @@ const findQuestionsByTopic = async (req, res) => {
       })
       .populate("author")
       .sort({ createdAt: -1 });
-    return res.status(200).json(questions);
+    return res.status(200).json(questions); // Return the questions with the specified topic
   } catch (error) {
-    res.status(500).json({ message: "Server Error" });
+    res.status(500).json({ message: "Server Error" }); // Handle server error
   }
 };
 

@@ -79,7 +79,7 @@ const Register = () => {
       >
         <div>
           <a href="/">
-            <h3 className="text-4xl font-bold dark:text-white">H-Forum</h3>
+            <h3 className="text-4xl font-bold dark:text-white">Dev's - Forum</h3>
           </a>
         </div>
         <div
@@ -181,7 +181,7 @@ const Register = () => {
                 className="text-sm text-gray-600 underline hover:text-gray-900 pt-1"
                 href="/login"
               >
-                Already have an account? Login
+                Already have an account? Please Login
               </a>
             </div>
           </form>
