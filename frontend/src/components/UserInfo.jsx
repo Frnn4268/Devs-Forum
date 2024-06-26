@@ -18,7 +18,7 @@ const UserInfo = ({ openId, index, setOpenId, question, answer }) => {
         />
         <h2 className="text-gray-300 text-xs">
           {answer ? "answered by\n" : "posted by "}
-          <span className="text-purple-800 font-bold md:text-sm">
+          <span className="text-black font-bold md:text-sm">
             {question
               ? question?.author?.name === currentUser?.name
                 ? question?.author?.name + " (You)"
@@ -43,7 +43,6 @@ const UserInfo = ({ openId, index, setOpenId, question, answer }) => {
           className="comment flex gap-2 ml-auto cursor-pointer text-purple-800"
           onClick={() => {
             if (!openId.find((ele) => ele === index)) {
-              console.log("hello");
               setOpenId([...openId, index]);
             }
             if (openId.find((ele) => ele === index)) {
@@ -52,7 +51,7 @@ const UserInfo = ({ openId, index, setOpenId, question, answer }) => {
           }}
         >
           <Comment />
-          <span className="text-xs font-bold">
+          <span className="text-xs font-bold text-black">
             {question?.replies?.length || "No replies"}
           </span>
         </div>

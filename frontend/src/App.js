@@ -84,7 +84,7 @@ const Layout = () => {
           <div className="right-section hidden md:block h-80 fixed z-10 top-24 right-28">
             <CreateButton />
             <div className="mt-8 py-4 px-3 rounded-md flex flex-col items-start gap-5">
-              <h2 className="text-gray-600 font-bold text-start">Top Users</h2>
+              <h2 className="text-black font-bold text-start">Top Users</h2>
               {users.slice(0, 5).map((user, index) => (
                 <div key={index} className="flex items-center cursor-pointer">
                   <img
@@ -92,7 +92,7 @@ const Layout = () => {
                     alt="profile"
                     className="w-6 h-6 rounded-full mr-2"
                   />
-                  <h3 className="text-xs">{user.name}</h3>
+                  <h3 className="text-xs text-red-400">{user.name}</h3>
                 </div>
               ))}
             </div>

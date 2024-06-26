@@ -22,10 +22,7 @@ const Navbar = () => {
       <div className="text-sm md:text-base font-bold text-red-500 cursor-pointer flex items-center gap-4">
         <div
           onClick={() => dispatch(toggle())}
-          className="
-          transition-transform   ease-linear
-        duration-700 cursor-pointer
-        "
+          className="transition-transform ease-linear duration-700 cursor-pointer"
         >
           {!open ? <Hamburger /> : <Cancel />}
         </div>

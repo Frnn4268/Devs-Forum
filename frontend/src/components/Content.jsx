@@ -46,9 +46,7 @@ const Content = () => {
                dark:bg-slate-400"
             >
               <div
-                className="w-full bg-white dark:bg-[#1E212A]
-              
-              p-4 md:p-5 rounded-lg shadow-md flex items-start gap-5"
+                className="w-full bg-white dark:bg-[#1E212A] p-4 md:p-5 rounded-lg shadow-md flex items-start gap-5"
               >
                 <div className="left-section space-y-1 text-center">
                   <Arrowup id={question._id} />
@@ -87,8 +85,8 @@ const Content = () => {
                           alt=""
                         />
                         <div
-                          className="   bg-white dark:bg-[#32353F] dark:text-white
-          max-w-xl p-5 rounded-lg shadow-md flex flex-col items-start gap-5 mt-2"
+                          className="bg-white dark:bg-[#32353F] dark:text-white
+                                    max-w-xl p-5 rounded-lg shadow-md flex flex-col items-start gap-5 mt-2"
                         >
                           <p className="text-inherit">{answer?.reply}</p>
                           <UserInfo answer={answer} />
@@ -99,13 +97,13 @@ const Content = () => {
                   {/* nested comment       */}
                   <div
                     className="w-full bg-white dark:bg-slate-900 flex items-center gap-4
-       px-5 py-2 rounded-lg shadow-md  mt-2"
+                              px-5 py-2 rounded-lg shadow-md  mt-2"
                   >
                     <Write />
                     <input
                       onChange={(e) => setAnswer(e.target.value)}
                       className="w-full h-10 border-none outline-none 
-          rounded-md py-1 px-2 text-black"
+                                rounded-md py-1 px-2 text-black"
                       type="text"
                       value={answer}
                       placeholder="Write a comment"
