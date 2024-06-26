@@ -1,4 +1,4 @@
-#Dev's Forum
+# Dev's Forum
 This project is a discussion and question platform where users can register, log in, create posts, participate in online chats and see answers to their own questions. It is developed in React with advanced features such as status management with Redux, routing with React Router, handling queries with React Query, and real-time communication using Socket.io. The design is optimized with Tailwind CSS for a smooth and responsive user experience.
 
 The project also includes features such as online user viewing, real-time chat interaction, and ranking of featured users. It is ideal for communities of discussion and mutual help.
@@ -7,16 +7,16 @@ The project also includes features such as online user viewing, real-time chat i
 ![GitHub forks](https://img.shields.io/github/forks/Frnn4268/Devs-Forum.svg)
 ![GitHub issues](https://img.shields.io/github/issues/Frnn4268/Devs-Forum.svg)
 
-##Content
+## Content
 1. Installing
 2. Use
 3. Technologies Used
 4. Main Features
 
-##Installing
+## Installing
 > git clone https://github.com/Frnn4268/Devs-Forum.git
 
-##Install dependencies
+## Install dependencies
 Install dependencies in backend and frontend:
 
 #### Backend
