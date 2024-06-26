@@ -12,6 +12,8 @@ The project also includes features such as online user viewing, real-time chat i
 2. Use
 3. Technologies Used
 4. Main Features
+5. Screenshots
+6. Contribution
 
 ## Installing
 > git clone https://github.com/Frnn4268/Devs-Forum.git
