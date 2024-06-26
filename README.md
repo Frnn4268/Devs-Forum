@@ -29,6 +29,7 @@ Install dependencies in backend and frontend:
 
 3. Create a new .env file:
 > PORT =  (your backend port)
+
 > MONGO_URL = (your mongo URL)
 
 #### Frontend
