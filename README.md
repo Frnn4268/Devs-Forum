@@ -81,6 +81,17 @@ Main technologies and tools used in the project.
 8. **Search Functionality:** Include search capabilities to allow users to find specific content within the forum efficiently.
 
 ## Screenshots
+### 1. Home:
+![Home](https://drive.google.com/uc?export=download&id=1lcrJSsc4UFRe4gMT18Nz76RLJ87EOvBi)
+
+### 2. Chat Online:
+![Chat Online](https://drive.google.com/uc?export=download&id=1y1z5U1YAl9LCHXcxUr2nlO6VF8-mAOzn)
+   
+### 3. User Posts:
+![Posts](https://drive.google.com/uc?export=download&id=1RdFYpO_8ivxOqoWZYmWti2pZTObR7El_)
+   
+### 4. Make a Post:
+![Post](https://drive.google.com/uc?export=download&id=1sl3fbr705ENkREfB6kghtqRfYL1OJPWa)
 
 ## Contribution
 1. Creates a project fork.
