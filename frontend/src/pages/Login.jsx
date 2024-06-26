@@ -33,70 +33,54 @@ const Login = () => {
   return (
     <div className="h-screen w-screen dark:bg-[#32353F]">
       <Toaster />
-      <div
-        className=" flex flex-col items-center  min-h-screen pt-6 
-      sm:justify-center sm:pt-0 "
-      >
+      <div className="flex flex-col items-center min-h-screen pt-6 sm:justify-center sm:pt-0">
         <div className="mt-12 md:mt-0">
           <a href="/">
-            <h3 className="text-4xl font-bold text-purple-950 dark:text-white">
-              Login
+            <h3 className="text-4xl font-bold text-black">
+              Dev's - Forum
             </h3>
           </a>
         </div>
         <div
-          className="w-[90%] md:w-full bg-purple-300
-          dark:bg-[#1E212A] border
-          px-6 py-4 mt-6 overflow-hidden
-         shadow-md sm:max-w-md rounded-lg"
+          className="w-[90%] md:w-full bg-red-500 text-white dark:bg-red-500 dark:text-white border px-6 py-4 mt-6 overflow-hidden shadow-md sm:max-w-md rounded-2xl"
         >
           <form onSubmit={handleSubmit}>
             <div className="mt-4">
               <label
                 htmlFor="email"
-                className="block text-sm font-medium 
-                text-purple-950 dark:text-white"
+                className="block text-sm font-medium text-white"
               >
                 Email
               </label>
               <input
                 type="email"
                 name="email"
-                className="border border-purple-200 mt-2 w-full h-10 px-3 rounded 
-                    outline-none 
-                       shadow-sm"
+                className="border border-white-200 mt-2 w-full h-10 px-3 rounded outline-none shadow-sm text-black"
               />
             </div>
             <div className="mt-4">
               <label
                 htmlFor="password"
-                className="block text-sm 
-                font-medium text-purple-950 dark:text-white"
+                className="block text-sm font-medium text-white"
               >
                 Password
               </label>
               <input
                 type="password"
                 name="password"
-                className="border border-purple-200 mt-2 w-full h-10 px-3 rounded 
-                    outline-none 
-                       shadow-sm"
+                className="border border-white-200 mt-2 w-full h-10 px-3 rounded outline-none shadow-sm text-black"
               />
             </div>
 
-            <div className="mt-8 flex flex-col items-center justify-center ">
+            <div className="mt-8 flex flex-col items-center justify-center">
               <button
                 type="submit"
-                className="inline-flex items-center px-4 py-2 text-xs font-semibold 
-                tracking-widest 
-                text-white uppercase transition duration-150 ease-in-out 
-                bg-purple-950 border border-transparent rounded-md 
-                active:bg-gray-900 false"
+                className="inline-flex items-center px-4 py-2 text-xs font-semibold tracking-widest text-white uppercase transition duration-150 ease-in-out bg-black border border-transparent rounded-md active:bg-gray-900 false"
               >
                 Login
               </button>
               <a
-                className="text-sm text-gray-100 underline hover:text-gray-900 pt-2"
+                className="text-sm text-white underline hover:text-gray-200 pt-2"
                 href="/register"
               >
                 Don't have an account? Please Register

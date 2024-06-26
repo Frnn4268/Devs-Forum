@@ -5,12 +5,9 @@ import Cancel from "../icons/Cancel";
 import { useDispatch, useSelector } from "react-redux";
 import { toggle } from "../context/sidebarSlice";
 import Logout from "../icons/Logout";
-import Dark from "../icons/Dark";
-import Light from "../icons/Light";
 
 const Navbar = () => {
   const open = useSelector((state) => state.sidebar.open);
-  const dark = useSelector((state) => state.theme.isDark);
   const dispatch = useDispatch();
   const user = JSON.parse(localStorage.getItem("user"));
 

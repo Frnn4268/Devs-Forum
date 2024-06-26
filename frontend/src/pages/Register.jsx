@@ -79,11 +79,11 @@ const Register = () => {
       >
         <div>
           <a href="/">
-            <h3 className="text-4xl font-bold dark:text-white">Dev's - Forum</h3>
+            <h3 className="text-4xl font-bold text-black">Dev's - Forum</h3>
           </a>
         </div>
         <div
-          className="w-[80%] md:w-full bg-white dark:bg-[#1E212A] border rounded-md 
+          className="w-[80%] md:w-full bg-red-500 dark:bg-[#1E212A] border rounded-2xl 
         px-6 py-4 mt-6 overflow-hidden  shadow-md sm:max-w-md"
         >
           <form>
@@ -103,8 +103,7 @@ const Register = () => {
             <div>
               <label
                 htmlFor="name"
-                className="block text-sm font-medium 
-                text-gray-700 dark:text-white"
+                className="block text-sm font-medium text-white"
               >
                 Name
               </label>
@@ -113,15 +112,13 @@ const Register = () => {
                 onChange={(e) => setName(e.target.value)}
                 type="text"
                 name="name"
-                className="border border-purple-200 mt-2 w-full h-10 px-3 rounded 
-                outline-none 
-                   shadow-sm"
+                className="border border-white-200 mt-2 w-full h-10 px-3 rounded outline-none shadow-sm text-black"
               />
             </div>
             <div className="mt-4">
               <label
                 htmlFor="email"
-                className="block text-sm font-medium text-gray-700 dark:text-white"
+                className="block text-sm font-medium text-white"
               >
                 Email
               </label>
@@ -137,7 +134,7 @@ const Register = () => {
             <div className="mt-4">
               <label
                 htmlFor="password"
-                className="block text-sm font-medium text-gray-700 dark:text-white"
+                className="block text-sm font-medium text-white"
               >
                 Password
               </label>
@@ -153,7 +150,7 @@ const Register = () => {
             <div className="mt-4">
               <label
                 htmlFor="password_confirmation"
-                className="block text-sm font-medium text-gray-700 dark:text-white"
+                className="block text-sm font-medium text-white"
               >
                 Confirm Password
               </label>
@@ -169,16 +166,12 @@ const Register = () => {
             <div className="flex flex-col items-center justify-center mt-4">
               <button
                 onClick={handleSubmit}
-                className="inline-flex items-center px-4 py-2 text-xs font-semibold 
-                tracking-widest 
-                text-white uppercase transition duration-150 ease-in-out 
-                bg-purple-950 border border-transparent rounded-md 
-                active:bg-gray-900 false"
+                className="inline-flex items-center px-4 py-2 text-xs font-semibold tracking-widest text-white uppercase transition duration-150 ease-in-out bg-black border border-transparent rounded-md active:bg-gray-900 false"
               >
                 Register
               </button>
               <a
-                className="text-sm text-gray-600 underline hover:text-gray-900 pt-1"
+                className="text-sm text-white underline hover:text-gray-200 pt-1"
                 href="/login"
               >
                 Already have an account? Please Login
