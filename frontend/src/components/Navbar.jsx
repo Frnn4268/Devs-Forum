@@ -19,7 +19,7 @@ const Navbar = () => {
      px-4
      md:px-20"
     >
-      <div className="text-sm md:text-base font-bold text-purple-500 cursor-pointer flex items-center gap-4">
+      <div className="text-sm md:text-base font-bold text-red-500 cursor-pointer flex items-center gap-4">
         <div
           onClick={() => dispatch(toggle())}
           className="
@@ -37,7 +37,7 @@ const Navbar = () => {
         <div className="hidden md:flex items-center gap-5">
           <div
             className="cursor-pointer text-sm 
-          md:text-base dark:text-white"
+          md:text-base dark:text-white font-bold"
             onClick={() => {
               localStorage.removeItem("user");
               navigate("/login");

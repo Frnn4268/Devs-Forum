@@ -16,6 +16,8 @@ import Notfound from "./components/Notfound";
 import { useDispatch, useSelector } from "react-redux";
 import { io } from "socket.io-client";
 import { addUsers } from "./context/onlineSlice";
+import SyncLoader from "react-spinners/SyncLoader";
+
 const queryClient = new QueryClient();
 
 export const socket = io(`${process.env.REACT_APP_BACKEND_URL}`, {
@@ -26,6 +28,7 @@ export const socket = io(`${process.env.REACT_APP_BACKEND_URL}`, {
 const Layout = () => {
   const [users, setUsers] = useState([]);
   const dispatch = useDispatch();
+  const theme = useSelector((state) => state.theme.isDark);
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user"));
@@ -40,61 +43,58 @@ const Layout = () => {
     socket.auth = user;
 
     socket.on("user-connected", (users) => {
-      console.log("users", users);
-
       dispatch(addUsers(users));
     });
 
     socket.on("user-disconnected", (users) => {
-      console.log("users", users);
       dispatch(addUsers(users));
     });
-    console.log("backend url", process.env.REACT_APP_BACKEND_URL);
+
     const getUsers = async () => {
-      const res = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/users/allusers`);
-      setUsers(res.data);
+      try {
+        const res = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/users/allusers`);
+        setUsers(res.data);
+      } catch (error) {
+        console.error("Error fetching users:", error);
+      }
     };
+
     getUsers();
-  }, [socket]);
+
+    return () => {
+      socket.disconnect();
+    };
+  }, [dispatch]);
+
+  if (users.length === 0) {
+    return (
+      <div className="h-screen flex items-center justify-center">
+        <SyncLoader size={10} color="#7E22CE" />
+      </div>
+    );
+  }
 
   return (
     <QueryClientProvider client={queryClient} contextSharing={true}>
-      <div
-        className="relative w-screen flex flex-col justify-center items-center 
-      overflow-x-hidden bg-white dark:bg-[#32353F]"
-      >
+      <div className={`relative w-screen flex flex-col justify-center items-center overflow-x-hidden ${theme ? "dark bg-[#32353F]" : "bg-white"}`}>
         <Navbar />
-        <div
-          className="w-full h-screen flex justify-center items-start px-4 
-        md:px-12 pt-12 dark:bg-[#32353F]"
-        >
+        <div className="w-full h-screen flex justify-center items-start px-4 md:px-12 pt-12">
           <Sidebar />
           <Outlet />
-          <div
-            className="right-section
-          hidden md:block
-          h-80 fixed z-10 top-24 right-28"
-          >
+          <div className="right-section hidden md:block h-80 fixed z-10 top-24 right-28">
             <CreateButton />
-            <div
-              className="mt-8  py-4 px-3 rounded-md flex
-         flex-col items-start gap-5"
-            >
+            <div className="mt-8 py-4 px-3 rounded-md flex flex-col items-start gap-5">
               <h2 className="text-gray-600 font-bold text-start">Top Users</h2>
-              {users.length > 0 &&
-                users.slice(0, 5).map((user, index) => {
-                  console.log("user", user);
-                  return (
-                    <div className="flex items-center cursor-pointer">
-                      <img
-                        src={user?.profileImage}
-                        alt="profile"
-                        className="w-6 h-6 rounded-full mr-2"
-                      />
-                      <h3 className="text-xs">{user.name}</h3>
-                    </div>
-                  );
-                })}
+              {users.slice(0, 5).map((user, index) => (
+                <div key={index} className="flex items-center cursor-pointer">
+                  <img
+                    src={user.profileImage}
+                    alt="profile"
+                    className="w-6 h-6 rounded-full mr-2"
+                  />
+                  <h3 className="text-xs">{user.name}</h3>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -145,10 +145,8 @@ const router = createBrowserRouter([
 ]);
 
 export default function App() {
-  const theme = useSelector((state) => state.theme.isDark);
-
   return (
-    <div className={`h-screen ${theme ? "dark" : ""}`}>
+    <div className="h-screen">
       <RouterProvider router={router} />
     </div>
   );

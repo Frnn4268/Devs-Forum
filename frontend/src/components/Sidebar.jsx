@@ -10,6 +10,7 @@ const Sidebar = () => {
   const dispatch = useDispatch();
   const active =
     "bg-red-100 text-red-500 px-4 py-2 rounded-sm border-l-4 border-red-700";
+  
   return (
     <div
       className={`${

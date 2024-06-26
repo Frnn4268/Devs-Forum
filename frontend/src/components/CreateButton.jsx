@@ -7,10 +7,10 @@ const CreateButton = () => {
   return (
     <div
       onClick={() => navigate("/ask")}
-      className="flex items-center gap-2 bg-purple-700 rounded-md shadow-sm px-8 py-2 cursor-pointer"
+      className="flex items-center gap-2 bg-red-700 rounded-md shadow-sm px-8 py-2 cursor-pointer"
     >
       <Add />
-      <span className="text-white">Start a new Post</span>
+      <span className="text-white font-bold">Start a new Post</span>
     </div>
   );
 };

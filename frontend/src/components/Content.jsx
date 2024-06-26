@@ -42,7 +42,7 @@ const Content = () => {
             <div
               key={index}
               className="w-[96%] md:w-[80%] mx-12 flex flex-col 
-              items-end  p-3 md:p-4 rounded-md bg-purple-100
+              items-end  p-3 md:p-4 rounded-md bg-red-100
                dark:bg-slate-400"
             >
               <div
@@ -58,7 +58,7 @@ const Content = () => {
                   <Arrowdown id={question._id} />
                 </div>
                 <div className="right-section w-full">
-                  <h1 className="text-base md:text-lg dark:text-white">
+                  <h1 className="text-base md:text-lg dark:text-white font-bold text-black">
                     {question?.question}
                   </h1>
                   <p className="text-sm md:text-base">
@@ -105,7 +105,7 @@ const Content = () => {
                     <input
                       onChange={(e) => setAnswer(e.target.value)}
                       className="w-full h-10 border-none outline-none 
-          rounded-md py-1 px-2 "
+          rounded-md py-1 px-2 text-black"
                       type="text"
                       value={answer}
                       placeholder="Write a comment"

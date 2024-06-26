@@ -53,15 +53,8 @@ const Chat = () => {
   };
 
   return (
-    <div
-      className="h-full overflow-y-hidden w-full md:w-[60%] flex  
-    flex-col items-center gap-4 mt-8"
-    >
-      <div
-        className="w-full md:w-[80%]
-      text-sm md:text-base
-      flex justify-between items-center dark:text-white"
-      >
+    <div className="h-full overflow-y-hidden w-full md:w-[60%] flex flex-col items-center gap-4 mt-8">
+      <div className="w-full md:w-[80%] text-sm md:text-base flex justify-between items-center dark:text-white">
         <h1 className="flex gap-4 text-sm md:text-base text-inherit">
           Online Users
           <span className="text-purple-600 text-sm flex gap-2">
@@ -82,28 +75,27 @@ const Chat = () => {
           {onlineUsers.length ? onlineUsers.length : 0}
         </h1>
       </div>
-      {/* // chat box */}
-      <div
-        className="w-full relative border-2 overflow-y-scroll 
-      p-3 px-2 md:p-4 rounded-md md:w-[80%] h-[90%] md:h-[80%] flex flex-col"
-      >
+      {/* Chat box */}
+      <div className="w-full relative border-2 overflow-y-scroll p-3 px-2 md:p-4 rounded-md md:w-[80%] h-[90%] md:h-[80%] flex flex-col">
         {messages &&
           Object.entries(messages).map(([key, value]) => {
             return (
-              <div>
+              <div key={key}>
                 {key === room &&
-                  value.map((msg) => {
+                  value.map((msg, index) => {
                     return (
                       <div
+                        key={index}
                         className={`w-max mb-2 ${
-                          user?._id === msg.user._id ? "ml-auto " : ""
+                          user?._id === msg.user._id ? "ml-auto" : ""
                         }`}
                       >
                         <div
-                          className={
-                            " text-sm md:text-base text-white bg-purple-400 py-2 px-3 rounded-md " +
-                            (user?._id === msg.user._id ? " bg-purple-600" : "")
-                          }
+                          className={`text-sm md:text-base py-2 px-3 rounded-md ${
+                            user?._id === msg.user._id
+                              ? "bg-purple-600 text-white"
+                              : "bg-purple-400 text-white"
+                          }`}
                         >
                           {msg.message}
                         </div>
@@ -120,20 +112,12 @@ const Chat = () => {
             );
           })}
 
-        <div
-          className="w-full 
-      mt-auto 
-         bg-purple-600 dark:bg-slate-900 
-        flex 
-        items-center gap-2
-        px-2 md:px-5 py-1 md:py-2 rounded-lg shadow-md  "
-        >
+        <div className="w-full mt-auto bg-purple-600 dark:bg-slate-900 flex items-center gap-2 px-2 md:px-5 py-1 md:py-2 rounded-lg shadow-md">
           <Write />
           <div className="flex-grow w-full">
             <input
               onChange={(e) => setMessage(e.target.value)}
-              className="w-full h-8 border-none outline-none 
-          rounded-md py-1 px-2 "
+              className="w-full h-8 border-none outline-none rounded-md py-1 px-2"
               type="text"
               value={message}
               placeholder="Write a comment"

@@ -19,24 +19,18 @@ const Myanswers = () => {
 
   if (isLoading)
     return (
-      <div className="h-screen mt-[10%] w-[100%] text-center">
+      <div className="h-screen mt-[10%] w-[100%] flex items-center justify-center">
         <SyncLoader size={10} color="#7E22CE" />
       </div>
     );
 
   return (
-    <div
-      className="h-full w-full md:w-[60%] flex flex-col items-center 
-    gap-8 "
-    >
+    <div className="h-full w-full md:w-[60%] flex flex-col items-center gap-8">
       {data.length > 0 &&
         data.map((question, index) => (
           <div
             key={index}
-            className="w-full my-8 md:w-[80%] md:mx-12 flex flex-col items-end border 
-          
-          p-2
-          md:p-4 rounded-md bg-purple-100"
+            className="w-full my-8 md:w-[80%] md:mx-12 flex flex-col items-end border p-2 md:p-4 rounded-md bg-purple-100"
           >
             <div className="w-full bg-white p-4 md:p-5 rounded-lg shadow-md flex items-start gap-5">
               <div className="left-section space-y-1 text-center">
@@ -49,7 +43,7 @@ const Myanswers = () => {
               <div className="right-section w-full">
                 <h1 className="text-base md:text-lg">{question?.question}</h1>
                 <p className="text-sm md:text-base">{question?.description}</p>
-                <hr />
+                <hr className="my-2" />
                 <UserInfo
                   openId={openId}
                   index={index + 1}
@@ -58,29 +52,22 @@ const Myanswers = () => {
                 />
               </div>
             </div>
-            {/* nested comment       */}
+            {/* Nested comments */}
             {openId.find((ele) => ele === index + 1) && (
               <>
-                {question?.replies?.map((answer, index) => {
-                  console.log("answer", answer);
-                  return (
-                    <div key={answer._id} className="flex items-center gap-4">
-                      {/* fix this */}
-                      <img
-                        className="h-4 md:h-6 w-4 md:w-6"
-                        src="https://cdn.icon-icons.com/icons2/2596/PNG/512/nested_arrows_icon_155086.png"
-                        alt=""
-                      />
-                      <div
-                        className="   bg-white
-      max-w-xl  p-5 rounded-lg shadow-md flex flex-col items-start gap-5 mt-2"
-                      >
-                        <p>{answer?.reply}</p>
-                        <UserInfo answer={answer} />
-                      </div>
+                {question?.replies?.map((answer, index) => (
+                  <div key={answer._id} className="flex items-center gap-4 mt-2">
+                    <img
+                      className="h-4 md:h-6 w-4 md:w-6"
+                      src="https://cdn.icon-icons.com/icons2/2596/PNG/512/nested_arrows_icon_155086.png"
+                      alt=""
+                    />
+                    <div className="bg-white max-w-xl p-5 rounded-lg shadow-md flex flex-col items-start gap-5">
+                      <p>{answer?.reply}</p>
+                      <UserInfo answer={answer} />
                     </div>
-                  );
-                })}
+                  </div>
+                ))}
               </>
             )}
           </div>
