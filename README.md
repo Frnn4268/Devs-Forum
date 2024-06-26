@@ -68,7 +68,7 @@ Main technologies and tools used in the project.
 
 3. **Question and Answer Forum:** Create a platform where users can post questions, receive answers, and engage in discussions.
 
-4. ** Responsive Design:** Ensure the application is responsive across various devices, enhancing accessibility and user experience.
+4. **Responsive Design:** Ensure the application is responsive across various devices, enhancing accessibility and user experience.
 
 5. **Dynamic Sidebar:** Utilize a dynamic sidebar to navigate between different sections of the application, enhancing user interaction.
 
